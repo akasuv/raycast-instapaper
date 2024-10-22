@@ -3,13 +3,8 @@ import { showToast } from "@raycast/api";
 import fetch from "node-fetch";
 import { getPreferenceValues } from "@raycast/api";
 
-interface Preferences {
-  email: string;
-  password: string;
-}
-
 export default async function () {
-  const preferences = getPreferenceValues<Preferences>();
+  const preferences = getPreferenceValues();
 
   const { text } = await Clipboard.read();
   const toast = await showToast({
